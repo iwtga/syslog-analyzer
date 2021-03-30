@@ -1,4 +1,6 @@
 #! /bin/bash
+
+# Initializes the colors
 function initialize_colors() {
 	normal_color="\e[1;0m"
 	green_color="\033[1;32m"
@@ -13,6 +15,7 @@ function initialize_colors() {
 	white_color="\e[1;97m"
 }
 
+# Prints the intro
 function print_intro() {
 	clear
 	echo -e "${red_color}           _______  _______  _______  _______  _______  _______  _______   _____  "
@@ -27,5 +30,9 @@ function print_intro() {
 	clear
 }
 
-initialize_colors
-print_intro
+main () {
+	initialize_colors
+	print_intro
+}
+
+main
