@@ -34,11 +34,15 @@ function print_intro() {
 
 # Checks if the script is running as root user
 function check_root_user() {
-	clear
-	echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
-	sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
-	sleep 0.15 && echo -e "\n"
-
+	if [ "$EUID" -ne 0 ]
+  	then 
+		clear
+		echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
+		sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
+		sleep 0.15 && echo -e "\n"
+		echo -e "${red_color}Script Not Running as root!!..............Run again as root!"
+  		exit
+	fi
 }
 
 
@@ -48,7 +52,7 @@ function main_menu() {
 	while true
 	do
 		clear
-		echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
+		sleep 0.15 && echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
 		sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
 		sleep 0.15 && echo -e "\n"
 		sleep 0.15 && echo -e "${green_color}Select an option from menu:${normal_color}"
