@@ -30,27 +30,52 @@ function print_intro() {
 	clear
 }
 
-function print_options() {
+# Checks if the script is running as root user
+function check_root_user() {
+	clear
 	echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
 	sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
 	sleep 0.15 && echo -e "\n"
-	sleep 0.15 && echo -e "${green_color}Select an option from menu:${normal_color}"
-	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
-	sleep 0.15 && echo -e "0. Exit script"
-	sleep 0.15 && echo -e "1. Open Realtime Authentication log"
-	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
-	read -rp "> " option_selected
+
 }
 
 
+
+# Main Menu
 function main_menu() {
-	print_options
-
+	while true
+	do
+		clear
+		echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
+		sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
+		sleep 0.15 && echo -e "\n"
+		sleep 0.15 && echo -e "${green_color}Select an option from menu:${normal_color}"
+		sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
+		sleep 0.15 && echo -e "0. Exit script"
+		sleep 0.15 && echo -e "1. Open Realtime Authentication log"
+		sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
+		read -rp "> " option_selected
+		case "$option_selected" in
+			0)
+				echo -e "${red_color}Exiting Script!....................${normal_color}"
+				exit
+				;;
+			1)
+				echo "${red_color}Opening Auth-Log Realtime Monitor${normal_color}"
+				xterm -e tail -f /var/log/auth.log
+				;;
+			*)
+				echo -e "${red_color}Invalid Option! Try Again!....................${normal_color}"
+				;;
+		esac		
+	done	
 }
 
+# Main
 main () {
 	initialize_colors
 	print_intro
+	check_root_user
 	main_menu
 }
 
