@@ -26,13 +26,32 @@ function print_intro() {
 	sleep 0.15 && echo -e "          | (      | (\ (   | (\ (   | |   | || (\ (         ) )|   / | |      ) |Alan"
 	sleep 0.15 && echo -e "          | (____/\| ) \ \__| ) \ \__| (___) || ) \ \__/\____) )|  (__) |/\____) )Irfan"
 	sleep 0.15 && echo -e "          (_______/|/   \__/|/   \__/(_______)|/   \__/\______/ (_______)\______/ Lance${normal_color}"
-	sleep 3
+	sleep 2
 	clear
+}
+
+function print_options() {
+	echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
+	sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
+	sleep 0.15 && echo -e "\n"
+	sleep 0.15 && echo -e "${green_color}Select an option from menu:${normal_color}"
+	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
+	sleep 0.15 && echo -e "0. Exit script"
+	sleep 0.15 && echo -e "1. Open Realtime Authentication log"
+	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
+	read -rp "> " option_selected
+}
+
+
+function main_menu() {
+	print_options
+
 }
 
 main () {
 	initialize_colors
 	print_intro
+	main_menu
 }
 
 main
