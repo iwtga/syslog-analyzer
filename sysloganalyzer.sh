@@ -32,17 +32,39 @@ function print_intro() {
 	clear
 }
 
+# Print Header
+function print_header() {
+	clear
+	echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
+	sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
+	sleep 0.15 && echo -e "\n"
+
+}
+
 # Checks if the script is running as root user
 function check_root_user() {
 	if [ "$EUID" -ne 0 ]
-  	then 
-		clear
-		echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
-		sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
-		sleep 0.15 && echo -e "\n"
-		echo -e "${red_color}Script Not Running as root!!..............Run again as root!"
+  	then
+	  	print_header
+		echo -e "${red_color}Script Not Running as root!!..............Run again as root!\n"
   		exit
 	fi
+}
+
+# Exit Script
+function exit_script() {
+	echo -e "\n${red_color}Exiting Script!....................${normal_color}\n"
+	exit
+}
+
+# Auth Log Monitor
+function auth_log_monitor() {
+	echo "${red_color}Opening Auth-Log Realtime Monitor${normal_color}"
+	xterm -e tail -f /var/log/auth.log
+}
+
+function invalid_option() {
+	echo -e "${red_color}Invalid Option! Try Again!....................${normal_color}"
 }
 
 
@@ -51,10 +73,7 @@ function check_root_user() {
 function main_menu() {
 	while true
 	do
-		clear
-		sleep 0.15 && echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
-		sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
-		sleep 0.15 && echo -e "\n"
+		print_header
 		sleep 0.15 && echo -e "${green_color}Select an option from menu:${normal_color}"
 		sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
 		sleep 0.15 && echo -e "0. Exit script"
@@ -63,15 +82,13 @@ function main_menu() {
 		read -rp "> " option_selected
 		case "$option_selected" in
 			0)
-				echo -e "${red_color}Exiting Script!....................${normal_color}"
-				exit
+				exit_script
 				;;
 			1)
-				echo "${red_color}Opening Auth-Log Realtime Monitor${normal_color}"
-				xterm -e tail -f /var/log/auth.log
+				auth_log_monitor
 				;;
 			*)
-				echo -e "${red_color}Invalid Option! Try Again!....................${normal_color}"
+				invalid_option
 				;;
 		esac		
 	done	
