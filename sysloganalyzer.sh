@@ -1,5 +1,4 @@
 #! /bin/bash
-
 # Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)
 
 # Initializes the colors
