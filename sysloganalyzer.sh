@@ -62,10 +62,35 @@ function auth_log_monitor() {
 	xterm -e tail -f /var/log/auth.log
 }
 
+# Invalid Option Selected
 function invalid_option() {
 	echo -e "${red_color}Invalid Option! Try Again!....................${normal_color}"
 }
 
+# About & Credits
+function about_credits() {
+	clear
+	echo -e "${green_color_title}***************************** Syslog Analyzer - About & Credits ******************************${normal_color}"
+	sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
+	sleep 0.15 && echo -e "\n"
+	sleep 0.15 && echo -e "${red_color}           _______  _______  _______  _______  _______  _______  _______   _____  "
+	sleep 0.15 && echo -e "          (  ____ \(  ____ )(  ____ )(  ___  )(  ____ )(  ____ \(  __   ) / ___ \ "
+	sleep 0.15 && echo -e "          | (    \/| (    )|| (    )|| (   ) || (    )|| (    \/| (  )  |( (   ) )Presents"
+	sleep 0.15 && echo -e "          | (__    | (____)|| (____)|| |   | || (____)|| (____  | | /   |( (___) |SysLog Analyzer"
+	sleep 0.15 && echo -e "          |  __)   |     __)|     __)| |   | ||     __)(_____ \ | (/ /) | \____  |"
+	sleep 0.15 && echo -e "          | (      | (\ (   | (\ (   | |   | || (\ (         ) )|   / | |      ) |Alan"
+	sleep 0.15 && echo -e "          | (____/\| ) \ \__| ) \ \__| (___) || ) \ \__/\____) )|  (__) |/\____) )Irfan"
+	sleep 0.15 && echo -e "          (_______/|/   \__/|/   \__/(_______)|/   \__/\______/ (_______)\______/ Lance${normal_color}"
+	sleep 0.15 && echo -e "\n"
+	sleep 0.15 && echo -e "${blue_color}This script was developed as part of OS project for SEM 4 by Team eRroR 509 (Alan, Irfan, Lance)${normal_color}"
+	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
+	sleep 0.15 && echo -e "${pink_color}Contact us:${normal_color}\n"
+	sleep 0.15 && echo -e "${green_color}Alan${normal_color} https://github.com/iwtga"
+	sleep 0.15 && echo -e "${green_color}Irfan${normal_color} https://github.com/Irfan7014"
+	sleep 0.15 && echo -e "${green_color}Lance${normal_color} https://github.com/SoaresLance10"
+	sleep 0.15 && echo -e "\nPress [Enter] key to continue..."
+	read escape
+}
 
 
 # Main Menu
@@ -78,6 +103,8 @@ function main_menu() {
 		sleep 0.15 && echo -e "0. Exit script"
 		sleep 0.15 && echo -e "1. Open Realtime Authentication log"
 		sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
+		sleep 0.15 && echo -e "2. About & Credits"
+		sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
 		read -rp "> " option_selected
 		case "$option_selected" in
 			0)
@@ -86,6 +113,9 @@ function main_menu() {
 			1)
 				auth_log_monitor
 				;;
+			2)
+				about_credits
+				;;	
 			*)
 				invalid_option
 				;;
