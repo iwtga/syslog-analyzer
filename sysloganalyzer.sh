@@ -40,6 +40,19 @@ function print_header() {
 
 }
 
+# Print Options
+function print_options() {
+	sleep 0.15 && echo -e "${green_color}Select an option from menu:${normal_color}"
+	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
+	sleep 0.15 && echo -e "0. Exit script"
+	sleep 0.15 && echo -e "1. Open Realtime Authentication log"
+	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
+	sleep 0.15 && echo -e "2. About & Credits"
+	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
+	read -rp "> " option_selected
+
+}
+
 # Checks if the script is running as root user
 function check_root_user() {
 	if [ "$EUID" -ne 0 ]
@@ -98,14 +111,7 @@ function main_menu() {
 	while true
 	do
 		print_header
-		sleep 0.15 && echo -e "${green_color}Select an option from menu:${normal_color}"
-		sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
-		sleep 0.15 && echo -e "0. Exit script"
-		sleep 0.15 && echo -e "1. Open Realtime Authentication log"
-		sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
-		sleep 0.15 && echo -e "2. About & Credits"
-		sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
-		read -rp "> " option_selected
+		print_options
 		case "$option_selected" in
 			0)
 				exit_script
