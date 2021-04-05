@@ -80,6 +80,25 @@ function invalid_option() {
 	echo -e "${red_color}Invalid Option! Try Again!....................${normal_color}"
 }
 
+# Main Case
+function main_case() {
+	case "$option_selected" in
+		0)
+			exit_script
+			;;
+		1)
+			auth_log_monitor
+			;;
+		2)
+			about_credits
+			;;	
+		*)
+			invalid_option
+			;;
+	esac		
+
+}
+
 # About & Credits
 function about_credits() {
 	clear
@@ -112,20 +131,7 @@ function main_menu() {
 	do
 		print_header
 		print_options
-		case "$option_selected" in
-			0)
-				exit_script
-				;;
-			1)
-				auth_log_monitor
-				;;
-			2)
-				about_credits
-				;;	
-			*)
-				invalid_option
-				;;
-		esac		
+		main_case
 	done	
 }
 
