@@ -46,8 +46,9 @@ function print_options() {
 	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
 	sleep 0.15 && echo -e "0. Exit script"
 	sleep 0.15 && echo -e "1. Open Realtime Authentication log"
+	sleep 0.15 && echo -e "2. Open Realtime System Log"
 	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
-	sleep 0.15 && echo -e "2. About & Credits"
+	sleep 0.15 && echo -e "3. About & Credits"
 	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
 	read -rp "> " option_selected
 
@@ -75,6 +76,12 @@ function auth_log_monitor() {
 	xterm -e tail -f /var/log/auth.log
 }
 
+# System Log Monitor
+function sys_log_monitor() {
+	echo "${red_color}Opening Realtime System Log Monitor${normal_color}"
+	xterm -e tail -f /var/log/syslog
+}
+
 # Invalid Option Selected
 function invalid_option() {
 	echo -e "${red_color}Invalid Option! Try Again!....................${normal_color}"
@@ -90,6 +97,9 @@ function main_case() {
 			auth_log_monitor
 			;;
 		2)
+			sys_log_monitor
+			;;
+		3)
 			about_credits
 			;;	
 		*)
