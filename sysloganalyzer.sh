@@ -1,5 +1,5 @@
 #! /bin/bash
-# Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)
+# Copyright © 2020-2022
 
 # Initializes the colors
 function initialize_colors() {
@@ -24,9 +24,9 @@ function print_intro() {
 	sleep 0.15 && echo -e "          | (    \/| (    )|| (    )|| (   ) || (    )|| (    \/| (  )  |( (   ) )Presents"
 	sleep 0.15 && echo -e "          | (__    | (____)|| (____)|| |   | || (____)|| (____  | | /   |( (___) |SysLog Analyzer"
 	sleep 0.15 && echo -e "          |  __)   |     __)|     __)| |   | ||     __)(_____ \ | (/ /) | \____  |"
-	sleep 0.15 && echo -e "          | (      | (\ (   | (\ (   | |   | || (\ (         ) )|   / | |      ) |Alan"
-	sleep 0.15 && echo -e "          | (____/\| ) \ \__| ) \ \__| (___) || ) \ \__/\____) )|  (__) |/\____) )Irfan"
-	sleep 0.15 && echo -e "          (_______/|/   \__/|/   \__/(_______)|/   \__/\______/ (_______)\______/ Lance${normal_color}"
+	sleep 0.15 && echo -e "          | (      | (\ (   | (\ (   | |   | || (\ (         ) )|   / | |      ) |"
+	sleep 0.15 && echo -e "          | (____/\| ) \ \__| ) \ \__| (___) || ) \ \__/\____) )|  (__) |/\____) )"
+	sleep 0.15 && echo -e "          (_______/|/   \__/|/   \__/(_______)|/   \__/\______/ (_______)\______/ ${normal_color}"
 	sleep 2
 	clear
 }
@@ -35,7 +35,7 @@ function print_intro() {
 function print_header() {
 	clear
 	echo -e "${green_color_title}***************************** Syslog Analyzer - Main Main ******************************${normal_color}"
-	sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
+	sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2022${normal_color}"
 	sleep 0.15 && echo -e "\n"
 
 }
@@ -123,23 +123,21 @@ function main_case() {
 function about_credits() {
 	clear
 	echo -e "${green_color_title}***************************** Syslog Analyzer - About & Credits ******************************${normal_color}"
-	sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2021 eRroR509 (Alan, Irfan, Lance)${normal_color}"
+	sleep 0.15 && echo -e "${yellow_color} Copyright © 2020-2022${normal_color}"
 	sleep 0.15 && echo -e "\n"
 	sleep 0.15 && echo -e "${red_color}           _______  _______  _______  _______  _______  _______  _______   _____  "
 	sleep 0.15 && echo -e "          (  ____ \(  ____ )(  ____ )(  ___  )(  ____ )(  ____ \(  __   ) / ___ \ "
 	sleep 0.15 && echo -e "          | (    \/| (    )|| (    )|| (   ) || (    )|| (    \/| (  )  |( (   ) )Presents"
 	sleep 0.15 && echo -e "          | (__    | (____)|| (____)|| |   | || (____)|| (____  | | /   |( (___) |SysLog Analyzer"
 	sleep 0.15 && echo -e "          |  __)   |     __)|     __)| |   | ||     __)(_____ \ | (/ /) | \____  |"
-	sleep 0.15 && echo -e "          | (      | (\ (   | (\ (   | |   | || (\ (         ) )|   / | |      ) |Alan"
-	sleep 0.15 && echo -e "          | (____/\| ) \ \__| ) \ \__| (___) || ) \ \__/\____) )|  (__) |/\____) )Irfan"
-	sleep 0.15 && echo -e "          (_______/|/   \__/|/   \__/(_______)|/   \__/\______/ (_______)\______/ Lance${normal_color}"
+	sleep 0.15 && echo -e "          | (      | (\ (   | (\ (   | |   | || (\ (         ) )|   / | |      ) |"
+	sleep 0.15 && echo -e "          | (____/\| ) \ \__| ) \ \__| (___) || ) \ \__/\____) )|  (__) |/\____) )"
+	sleep 0.15 && echo -e "          (_______/|/   \__/|/   \__/(_______)|/   \__/\______/ (_______)\______/ ${normal_color}"
 	sleep 0.15 && echo -e "\n"
-	sleep 0.15 && echo -e "${blue_color}This script was developed as part of OS project for SEM 4 by Team eRroR 509 (Alan, Irfan, Lance)${normal_color}"
+	sleep 0.15 && echo -e "${blue_color}This script was developed as part of OS project for SEM 4${normal_color}"
 	sleep 0.15 && echo -e "${blue_color}---------${normal_color}"
-	sleep 0.15 && echo -e "${pink_color}Contact us:${normal_color}\n"
+	sleep 0.15 && echo -e "${pink_color}Contact:${normal_color}\n"
 	sleep 0.15 && echo -e "${green_color}Alan${normal_color} https://github.com/iwtga"
-	sleep 0.15 && echo -e "${green_color}Irfan${normal_color} https://github.com/Irfan7014"
-	sleep 0.15 && echo -e "${green_color}Lance${normal_color} https://github.com/SoaresLance10"
 	sleep 0.15 && echo -e "\nPress [Enter] key to continue..."
 	read escape
 }
